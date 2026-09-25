@@ -5,15 +5,17 @@
 // browser gets only its own role's stages, with no action settings.
 
 import { Action, Field, Stage, Step, useWorkflowNav, useWorkflowState, Workflow, type WorkflowProps } from '@clipless/react'
+import { Button, Text } from '@radix-ui/themes'
+import { fields } from './fields'
 
 /** Continue to the next step; on the last one, submit the stage. */
 function Next() {
   const { steps, next, canGoNext } = useWorkflowNav()
-  if (steps.length === 0) return <p>Nothing for you to do on this claim.</p>
+  if (steps.length === 0) return <Text>Nothing for you to do on this claim.</Text>
   return (
-    <button type="button" disabled={!canGoNext} onClick={next}>
+    <Button disabled={!canGoNext} onClick={next}>
       Continue
-    </button>
+    </Button>
   )
 }
 
@@ -21,15 +23,15 @@ function Next() {
 function Claimed() {
   const { answers } = useWorkflowState()
   return (
-    <p>
+    <Text as="p" mb="4">
       {String(answers.description)}: ${String(answers.amount)}
-    </p>
+    </Text>
   )
 }
 
 export default function ExpenseClaim(props: Partial<WorkflowProps>) {
   return (
-    <Workflow id="expense_claim_v1" version="1.0.0" {...props}>
+    <Workflow id="expense_claim_v1" version="1.0.0" componentRegistry={fields} {...props}>
       <Stage name="claim" actor="role:employee">
         <Step name="details">
           <Field name="description" type="string" label="What was it for?" required />
