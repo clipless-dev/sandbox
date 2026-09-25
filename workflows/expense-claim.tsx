@@ -10,7 +10,9 @@ import { fields } from './fields'
 
 /** Continue to the next step; on the last one, submit the stage. */
 function Next() {
+  const { isComplete } = useWorkflowState()
   const { steps, next, canGoNext } = useWorkflowNav()
+  if (isComplete) return <Text>This claim is closed.</Text>
   if (steps.length === 0) return <Text>Nothing for you to do on this claim.</Text>
   return (
     <Button disabled={!canGoNext} onClick={next}>
