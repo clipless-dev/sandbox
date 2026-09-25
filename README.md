@@ -6,7 +6,8 @@ approves it or sends it back, finance pays it and your app hears about it by web
 The workflow is one file, [`workflows/expense-claim.tsx`](workflows/expense-claim.tsx). Each browser
 gets only its own role's stages ([`next.config.ts`](next.config.ts),
 [`components/role-workflow.tsx`](components/role-workflow.tsx)). The API key stays on the server
-([`lib/clipless.ts`](lib/clipless.ts)); a page gets a token for one claim and one role.
+([`lib/clipless.ts`](lib/clipless.ts)); a page gets tokens for one claim only. Here it gets one per
+role, so you can switch between them instantly; a real app gives each person a token for their own role.
 
 ## Try it
 

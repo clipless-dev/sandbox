@@ -5,8 +5,8 @@ import 'server-only'
 
 export const CLIPLESS_URL = process.env.CLIPLESS_URL || 'https://api.clipless.dev'
 
-export const ROLES = ['employee', 'manager', 'finance'] as const
-export type Role = (typeof ROLES)[number]
+export { ROLES, type Role } from './roles'
+import type { Role } from './roles'
 
 async function call(path: string, body?: object) {
   const res = await fetch(`${CLIPLESS_URL}/api/v1${path}`, {
