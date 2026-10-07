@@ -11,7 +11,7 @@
     "start": "next start -p 3001"
   },
   "dependencies": {
-    "@clipless/react": "^0.1.0",
+    "@clipless/react": "^0.2.0",
     "@radix-ui/themes": "^3.3.0",
     "next": "16.3.6",
     "react": "^19.2.0",

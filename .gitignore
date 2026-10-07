@@ -2,7 +2,7 @@ node_modules
 .next
 next-env.d.ts
 *.tsbuildinfo
-# The SDK packed from ../formdsl: not ours to redistribute, and rebuilt by `bun run sdk`.
+# The SDK packed from ../engine: not ours to redistribute, and rebuilt by `bun run sdk`.
 vendor/
 .env
 .env.local

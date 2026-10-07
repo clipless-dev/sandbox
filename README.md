@@ -16,7 +16,7 @@ You need [Bun](https://bun.sh) and a Clipless **test key** (`cls_test_…`): req
 address, so nothing you try here reaches anyone else.
 
 ```bash
-git clone https://github.com/dsego/clipless-sandbox && cd clipless-sandbox
+git clone https://github.com/clipless-dev/sandbox && cd sandbox
 bun install
 cp .env.example .env.local            # paste your key into CLIPLESS_API_KEY
 bunx clipless secrets signing-secret  # paste what it prints into CLIPLESS_SIGNING_SECRET
